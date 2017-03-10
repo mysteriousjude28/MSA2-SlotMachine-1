@@ -6,9 +6,9 @@ package sample;
 import java.util.Random;
 
 public class Person {
-    public String name;
-    public int money;
-    public int bet;
+    private String name;
+    private int money;
+    private int bet;
 
 
     public Person(String name, int money) {
@@ -21,14 +21,14 @@ public class Person {
     }
 
     public void setMoney(int money) {
-        return money;
+        this.money = money;
     }
 
     public int getBet() {
-        return bet;
+        return this.bet;
     }
 
     public void setBet(int betAmount) {
-        return betAmount;
+         this.bet = betAmount;
     }
 }
