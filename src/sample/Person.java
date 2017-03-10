@@ -7,7 +7,21 @@ import java.util.Random;
 
 public class Person {
     public String name;
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
     public int money;
+
+    public int getBet() {
+        return bet;
+    }
+
     public int bet;
 
     public Person(String name, int money) {
@@ -22,40 +36,6 @@ public class Person {
 
     // Player place bet and sees if they win
     public int setBet(int betAmount) {
-        int playerBet = betAmount;
-        int winnings = slotResults(betAmount, slotMachine.didPlayerWin(), slotMachine.didBonusHit());
-        return winnings;
+        return betAmount;
     }
-
-    // Slot machine results
-    public int slotResults(int betAmount, boolean slotMachine.didPlayerWin(), boolean slotMachine.didBonusHit()) {
-        if (slotMachine.didBonusHit() == true) {
-            return betAmount * 2;
-        } else if (didPlayerWin() == true) {
-            return betAmount;
-        } else {
-            return 0;
-        }
-    }
-
-
-
-//        // Message for user
-//        forceLeave(person);
-//        System.out.println("You have " + person.money + " dollars left. " + security(message));
-
-//    // Message after each bet
-//    String message = " ";
-//    public String forceLeave(Person person) {
-//        if (person.money > 0) {
-//            String message = "Please keep playing ";
-//        } else if (person.money <= -0) {
-//            String message = "Please leave the slot machine ";
-//        }
-//        return security(message);
-//    }
-//
-//    private String security(String message) {
-//        return message + this.name;
-//    }
 }
