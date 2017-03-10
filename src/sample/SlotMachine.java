@@ -10,11 +10,7 @@ public class SlotMachine {
     private int wheelOne;
     private int wheelTwo;
     private int wheelThree;
-
-    public SlotMachine() {
-
-    }
-
+    
     private void setWheels(){
         Random random = new Random();
         wheelOne = random.nextInt(10) +1;
