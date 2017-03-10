@@ -17,16 +17,38 @@ public class Controller {
     Person player = new Person("Bob",150);
 
     public void play(ActionEvent actionEvent) {
-        int currentBet = Integer.parseInt(betInput.getText());
-        if (currentBet > 0 && player.getMoney() > 0) {
-            player.setBet(currentBet);
-            slotMachine.play();
-            wheelOne.setText(String.valueOf(slotMachine.getWheelOne()));
-            wheelTwo.setText(String.valueOf(slotMachine.getWheelTwo()));
-            wheelThree.setText(String.valueOf(slotMachine.getWheelThree()));
 
+        if (!betInput.getText().isEmpty()) {
+            int currentBet = Integer.parseInt(betInput.getText());
+            if (currentBet > 0 && player.getMoney() > 0) {
+                player.setBet(currentBet);
+                slotMachine.play();
+                wheelOne.setText(String.valueOf(slotMachine.getWheelOne()));
+                wheelTwo.setText(String.valueOf(slotMachine.getWheelTwo()));
+                wheelThree.setText(String.valueOf(slotMachine.getWheelThree()));
+
+                if (slotMachine.didBonusHit()) {
+                    int newMoney = player.getMoney() + player.getBet() * 2;
+                    player.setMoney(newMoney);
+                    playerMoneyAmount.setText(String.valueOf(player.getMoney()));
+                } else if (slotMachine.didPlayerWin()) {
+                    player.setMoney(player.getMoney() + player.getBet());
+                    playerMoneyAmount.setText(String.valueOf(player.getMoney()));
+                } else {
+                    player.setMoney(player.getMoney() - player.getBet());
+                    playerMoneyAmount.setText(String.valueOf(player.getMoney()));
+                    System.out.println("You Lost");
+                }
+
+            } else System.out.println("Invalid bet");
+        }
+    }
+}
+
+// Option for better chance to win: change lines 28 - 39
+/*
             if (slotMachine.didBonusHit()) {
-                int newMoney = player.getMoney() + player.getBet() * 2;
+                int newMoney = player.getMoney() + player.getBet() * 3;
                 player.setMoney(newMoney);
                 playerMoneyAmount.setText(String.valueOf(player.getMoney()));
             } else if (slotMachine.didPlayerWin()) {
@@ -37,6 +59,4 @@ public class Controller {
                 playerMoneyAmount.setText(String.valueOf(player.getMoney()));
                 System.out.println("You Lost");
             }
-        } else System.out.println("Invalid bet");
-    }
-}
+ */

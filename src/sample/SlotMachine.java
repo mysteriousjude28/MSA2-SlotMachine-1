@@ -50,6 +50,15 @@ public class SlotMachine {
              return false;
          }
      }
+
+//    public boolean didTwoMatch(){
+//        if(wheelOne == wheelTwo || wheelOne == wheelThree){
+//            return true;
+//        }else {
+//            return false;
+//        }
+//     }
+
      public boolean didPlayerLoose(){
           if(wheelOne != wheelTwo && wheelTwo != wheelThree) {
               return true;
