@@ -1,8 +1,34 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-</GridPane>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Label layoutX="251.0" layoutY="37.0" text="SLOT MACHINE" />
+      <HBox layoutX="272.0" layoutY="74.0" spacing="15.0">
+         <children>
+            <Label fx:id="wheelOne" text="#" />
+            <Label fx:id="wheelTwo" text="#" />
+            <Label fx:id="wheelThree" text="#" />
+         </children>
+      </HBox>
+      <Button fx:id="playButton" layoutX="271.0" layoutY="266.0" mnemonicParsing="false" onAction="#play" text="PLAY" />
+      <VBox layoutX="40.0" layoutY="66.0">
+         <children>
+            <Label text="Player Bet" />
+            <TextField fx:id="betInput" />
+         </children>
+      </VBox>
+      <VBox layoutX="499.0" layoutY="66.0">
+         <children>
+            <Label text="Player $" />
+            <Label fx:id="playerMoneyAmount" text="\$" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

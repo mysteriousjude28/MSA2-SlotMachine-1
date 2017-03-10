@@ -19,20 +19,29 @@ public class SlotMachine {
     }
 
     public void play() {
-        setWheels();
+        System.out.println("PLAY NOW");
     }
 
-     public boolean didPlayerWin(){
+    public boolean didPlayerWin(){
         if (wheelOne == wheelTwo && wheelTwo == wheelThree) {
             return true;
+        }else {
+            return false;
         }
      }
 
-     public boolean didBonusHit(){
+      public boolean didBonusHit(){
          if (wheelOne == 7 && wheelTwo == 7 && wheelThree == 7) {
              return true;
 
+         }else {
+             return false;
          }
      }
-    
+
 }
+
+
+
+
+
