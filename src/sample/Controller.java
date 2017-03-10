@@ -16,15 +16,11 @@ public class Controller {
     public Label wheelThree;
     public Label playerMoneyAmount;
     public ChoiceBox betPicker;
-//    private List<String> letters = new ArrayList<>();
-
 
     SlotMachine slotMachine = new SlotMachine();
     Person player = new Person("Bob",150);
 
     public void play(ActionEvent actionEvent) {
-//        letters = Arrays.asList("a","b","c","d");
-//        if (!betInput.getText().isEmpty()|| !letters.contains(betInput.getText())) {
         if (!betInput.getText().isEmpty()){
             int currentBet = Integer.parseInt(betInput.getText());
             if (currentBet > 0 && player.getMoney() > 0 && currentBet < player.getMoney()) {
@@ -51,7 +47,12 @@ public class Controller {
     }
 }
 
-// Option for better chance to win: uncomment line 54 - 60 in SlotMachine.java & change lines 28 - 39 to code below
+// Last bug fix - no alphabets
+//19    private List<String> letters = new ArrayList<>();
+//24        letters = Arrays.asList("a","b","c","d");
+//        if (!betInput.getText().isEmpty()|| !letters.contains(betInput.getText())) {
+
+// Option for better chance to win: Change lines 33 - 43 to code below
 /*
             if (slotMachine.didBonusHit()) {
                 player.setMoney(player.getMoney() + player.getBet() * 3);
