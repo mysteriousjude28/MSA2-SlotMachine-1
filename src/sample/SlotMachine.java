@@ -7,6 +7,18 @@ import java.util.Random;
  */
 public class SlotMachine {
 
+    public int getWheelOne() {
+        return wheelOne;
+    }
+
+    public int getWheelTwo() {
+        return wheelTwo;
+    }
+
+    public int getWheelThree() {
+        return wheelThree;
+    }
+
     private int wheelOne;
     private int wheelTwo;
     private int wheelThree;
