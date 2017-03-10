@@ -31,11 +31,12 @@ public class SlotMachine {
     }
 
     public void play() {
-        System.out.println("PLAY NOW");
+        setWheels();
     }
 
     public boolean didPlayerWin(){
         if (wheelOne == wheelTwo && wheelTwo == wheelThree) {
+
             return true;
         }else {
             return false;
