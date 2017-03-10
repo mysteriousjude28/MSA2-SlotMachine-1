@@ -5,6 +5,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Controller {
     public TextField betInput;
     public Label wheelOne;
@@ -12,15 +16,18 @@ public class Controller {
     public Label wheelThree;
     public Label playerMoneyAmount;
     public ChoiceBox betPicker;
+//    private List<String> letters = new ArrayList<>();
+
 
     SlotMachine slotMachine = new SlotMachine();
     Person player = new Person("Bob",150);
 
     public void play(ActionEvent actionEvent) {
-
-        if (!betInput.getText().isEmpty()) {
+//        letters = Arrays.asList("a","b","c","d");
+//        if (!betInput.getText().isEmpty()|| !letters.contains(betInput.getText())) {
+        if (!betInput.getText().isEmpty()){
             int currentBet = Integer.parseInt(betInput.getText());
-            if (currentBet > 0 && player.getMoney() > 0) {
+            if (currentBet > 0 && player.getMoney() > 0 && currentBet < player.getMoney()) {
                 player.setBet(currentBet);
                 slotMachine.play();
                 wheelOne.setText(String.valueOf(slotMachine.getWheelOne()));
@@ -28,8 +35,7 @@ public class Controller {
                 wheelThree.setText(String.valueOf(slotMachine.getWheelThree()));
 
                 if (slotMachine.didBonusHit()) {
-                    int newMoney = player.getMoney() + player.getBet() * 2;
-                    player.setMoney(newMoney);
+                    player.setMoney(player.getMoney() + player.getBet() * 2);
                     playerMoneyAmount.setText(String.valueOf(player.getMoney()));
                 } else if (slotMachine.didPlayerWin()) {
                     player.setMoney(player.getMoney() + player.getBet());
@@ -45,16 +51,18 @@ public class Controller {
     }
 }
 
-// Option for better chance to win: change lines 28 - 39
+// Option for better chance to win: uncomment line 54 - 60 in SlotMachine.java & change lines 28 - 39 to code below
 /*
             if (slotMachine.didBonusHit()) {
-                int newMoney = player.getMoney() + player.getBet() * 3;
-                player.setMoney(newMoney);
-                playerMoneyAmount.setText(String.valueOf(player.getMoney()));
+                player.setMoney(player.getMoney() + player.getBet() * 3);
+                    playerMoneyAmount.setText(String.valueOf(player.getMoney()));
             } else if (slotMachine.didPlayerWin()) {
+                player.setMoney(player.getMoney() + player.getBet() * 2);
+                playerMoneyAmount.setText(String.valueOf(player.getMoney()));
+            } else if (slotMachine.didTwoMatch()) {
                 player.setMoney(player.getMoney() + player.getBet());
                 playerMoneyAmount.setText(String.valueOf(player.getMoney()));
-            } else {
+            }else {
                 player.setMoney(player.getMoney() - player.getBet());
                 playerMoneyAmount.setText(String.valueOf(player.getMoney()));
                 System.out.println("You Lost");
