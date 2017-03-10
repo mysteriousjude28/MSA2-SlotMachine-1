@@ -18,7 +18,6 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        SlotMachine slotMachine = new SlotMachine();
         launch(args);
     }
 }
