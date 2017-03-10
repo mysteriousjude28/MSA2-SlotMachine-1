@@ -27,7 +27,6 @@ public class Controller {
         }else if (slotMachine.didPlayerWin()) {
             player.setMoney(player.getMoney() + player.getBet());
             playerMoneyAmount.setText(String.valueOf(player.getMoney()));
-
         }else {
             player.setMoney(player.getMoney() - player.getBet());
             playerMoneyAmount.setText(String.valueOf(player.getMoney()));
