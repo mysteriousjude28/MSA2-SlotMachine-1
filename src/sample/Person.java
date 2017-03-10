@@ -6,7 +6,7 @@ package sample;
 import java.util.Random;
 
 public class Person {
-    public String name;
+    private String name;
 
     public int getMoney() {
         return money;
@@ -16,26 +16,23 @@ public class Person {
         this.money = money;
     }
 
-    public int money;
+    private int money;
 
     public int getBet() {
-        return bet;
+        return this.bet;
     }
 
-    public int bet;
+    private int bet;
 
     public Person(String name, int money) {
         this.name = name;
         this.money = money;
     }
 
-    public int currentMoney(Person person, int betAmount){
-        int winnings = setBet(betAmount);
-        return (person.money - betAmount + winnings);
-    }
+
 
     // Player place bet and sees if they win
-    public int setBet(int betAmount) {
-        return betAmount;
+    public void setBet(int betAmount) {
+         this.bet = betAmount;
     }
 }

@@ -46,10 +46,16 @@ public class SlotMachine {
       public boolean didBonusHit(){
          if (wheelOne == 7 && wheelTwo == 7 && wheelThree == 7) {
              return true;
-
          }else {
              return false;
          }
+     }
+     public boolean didPlayerLoose(){
+          if(wheelOne != wheelTwo && wheelTwo != wheelThree) {
+              return true;
+          }else {
+              return false;
+          }
      }
 
 }
