@@ -7,6 +7,14 @@ import java.util.Random;
 
 public class Person {
     private String name;
+    private int money;
+    private int bet;
+
+
+    public Person(String name, int money) {
+        this.name = name;
+        this.money = money;
+    }
 
     public int getMoney() {
         return money;
@@ -16,22 +24,10 @@ public class Person {
         this.money = money;
     }
 
-    private int money;
-
     public int getBet() {
         return this.bet;
     }
 
-    private int bet;
-
-    public Person(String name, int money) {
-        this.name = name;
-        this.money = money;
-    }
-
-
-
-    // Player place bet and sees if they win
     public void setBet(int betAmount) {
          this.bet = betAmount;
     }
